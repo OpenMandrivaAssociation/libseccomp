@@ -1,16 +1,16 @@
-%define major 1
-%define libname %mklibname seccomp %{major}
-%define develname %mklibname -d seccomp
+%define major	1
+%define libname	%mklibname seccomp %{major}
+%define devname	%mklibname -d seccomp
 
 Summary:	Enhanced seccomp library
 Name:		libseccomp
 Version:	1.0.0
 Release:	1
-ExclusiveArch:	%{ix86} x86_64
 License:	LGPLv2
 Group:		System/Libraries
+Url:		http://libseccomp.sourceforge.net
 Source0:	http://downloads.sf.net/project/libseccomp/%{name}-%{version}.tar.gz
-URL:		http://libseccomp.sourceforge.net
+ExclusiveArch:	%{ix86} x86_64
 Requires:	kernel >= 3.5
 
 %description
@@ -19,7 +19,6 @@ syscall filtering mechanism, seccomp.  The libseccomp API allows an application
 to specify which syscalls, and optionally which syscall arguments, the
 application is allowed to execute, all of which are enforced by the Linux
 Kernel.
-
 
 %package -n     %{libname}
 Summary:        Collection library providing GObject-based interfaces and classes
@@ -32,13 +31,13 @@ to specify which syscalls, and optionally which syscall arguments, the
 application is allowed to execute, all of which are enforced by the Linux
 Kernel.
 
-%package -n	%{develname}
+%package -n	%{devname}
 Summary:	Development files used to build applications with libseccomp support
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Provides:	seccomp-devel = %{version}-%{release}
 
-%description -n	%{develname}
+%description -n	%{devname}
 The libseccomp library provides an easy to use interface to the Linux Kernel's
 syscall filtering mechanism, seccomp.  The libseccomp API allows an application
 to specify which syscalls, and optionally which syscall arguments, the
@@ -59,11 +58,12 @@ mkdir -p "%{buildroot}/%{_mandir}"
 %makeinstall_std
 
 %files -n %{libname}
-%{_libdir}/libseccomp.so.*
+%{_libdir}/libseccomp.so.%{major}*
 
-%files -n %{develname}
+%files -n %{devname}
 %doc LICENSE CREDITS README
 %{_includedir}/seccomp.h
 %{_libdir}/libseccomp.so
 %{_libdir}/pkgconfig/libseccomp.pc
 %{_mandir}/man3/*
+
