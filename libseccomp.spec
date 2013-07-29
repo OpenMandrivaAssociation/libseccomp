@@ -10,7 +10,7 @@ License:	LGPLv2
 Group:		System/Libraries
 Url:		http://libseccomp.sourceforge.net
 Source0:	http://downloads.sf.net/project/libseccomp/%{name}-%{version}.tar.gz
-ExclusiveArch:	%{ix86} x86_64
+ExclusiveArch:	%{ix86} x86_64 %arm
 Requires:	kernel >= 3.5
 %ifarch %arm
 Requires:	kernel >= 3.8
