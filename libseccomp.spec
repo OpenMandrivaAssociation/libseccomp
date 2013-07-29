@@ -1,10 +1,10 @@
-%define major	1
+%define major	2
 %define libname	%mklibname seccomp %{major}
 %define devname	%mklibname -d seccomp
 
 Summary:	Enhanced seccomp library
 Name:		libseccomp
-Version:	1.0.0
+Version:	2.1.0
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
@@ -12,6 +12,9 @@ Url:		http://libseccomp.sourceforge.net
 Source0:	http://downloads.sf.net/project/libseccomp/%{name}-%{version}.tar.gz
 ExclusiveArch:	%{ix86} x86_64
 Requires:	kernel >= 3.5
+%ifarch %arm
+Requires:	kernel >= 3.8
+%endif
 
 %description
 The libseccomp library provides an easy to use interface to the Linux Kernel's
@@ -62,8 +65,9 @@ mkdir -p "%{buildroot}/%{_mandir}"
 
 %files -n %{devname}
 %doc LICENSE CREDITS README
+%{_bindir}/scmp_sys_resolver
 %{_includedir}/seccomp.h
 %{_libdir}/libseccomp.so
 %{_libdir}/pkgconfig/libseccomp.pc
 %{_mandir}/man3/*
-
+%{_mandir}/man1/*

@@ -1,2 +1,4 @@
+removed_sources:
+  libseccomp-1.0.0.tar.gz: 8d76547286992502665a945d83cd262325d553f7
 sources:
-  "libseccomp-1.0.0.tar.gz": 8d76547286992502665a945d83cd262325d553f7
+  libseccomp-2.1.0.tar.gz: 1e6c34ea7c89c3d9136f62379e317e9cf97870a7
