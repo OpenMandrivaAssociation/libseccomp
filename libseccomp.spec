@@ -12,6 +12,7 @@ Url:		http://libseccomp.sourceforge.net
 Source0:	http://downloads.sf.net/project/libseccomp/%{name}-%{version}.tar.gz
 Requires:	kernel
 Patch0:		aarch64-support.patch
+Patch1:		fix-aarch64-tests.patch
 
 %description
 The libseccomp library provides an easy to use interface to the Linux Kernel's
