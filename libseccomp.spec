@@ -5,7 +5,7 @@
 Summary:	Enhanced seccomp library
 Name:		libseccomp
 Version:	2.1.1
-Release:	5
+Release:	6
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://libseccomp.sourceforge.net
