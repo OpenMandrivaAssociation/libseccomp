@@ -1,18 +1,16 @@
-%define major	2
-%define libname	%mklibname seccomp %{major}
-%define devname	%mklibname -d seccomp
+%define major 2
+%define libname %mklibname seccomp %{major}
+%define devname %mklibname -d seccomp
 
 Summary:	Enhanced seccomp library
 Name:		libseccomp
-Version:	2.1.1
-Release:	9
+Version:	2.3.1
+Release:	1
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://libseccomp.sourceforge.net
-Source0:	http://downloads.sf.net/project/libseccomp/%{name}-%{version}.tar.gz
+Url:		https://github.com/seccomp/libseccomp
+Source0:	https://github.com/seccomp/libseccomp/releases/download/v%{version}/%{name}-%{version}.tar.gz
 Requires:	kernel
-Patch0:		aarch64-support.patch
-Patch1:		fix-aarch64-tests.patch
 
 %description
 The libseccomp library provides an easy to use interface to the Linux Kernel's
@@ -21,9 +19,9 @@ to specify which syscalls, and optionally which syscall arguments, the
 application is allowed to execute, all of which are enforced by the Linux
 Kernel.
 
-%package -n     %{libname}
-Summary:        Collection library providing GObject-based interfaces and classes
-Group:          System/Libraries
+%package -n %{libname}
+Summary:	Collection library providing GObject-based interfaces and classes
+Group:		System/Libraries
 
 %description -n %{libname}
 The libseccomp library provides an easy to use interface to the Linux Kernel's
@@ -32,11 +30,11 @@ to specify which syscalls, and optionally which syscall arguments, the
 application is allowed to execute, all of which are enforced by the Linux
 Kernel.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files used to build applications with libseccomp support
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
-Provides:	seccomp-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Provides:	seccomp-devel = %{EVRD}
 
 %description -n	%{devname}
 The libseccomp library provides an easy to use interface to the Linux Kernel's
@@ -50,7 +48,7 @@ Kernel.
 %apply_patches
 
 %build
-%configure2_5x
+%configure
 %make
 
 %install
