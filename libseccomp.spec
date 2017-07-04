@@ -61,7 +61,7 @@ mkdir -p "%{buildroot}/%{_mandir}"
 %{_libdir}/libseccomp.so.%{major}*
 
 %files -n %{devname}
-%doc LICENSE CREDITS README
+%doc LICENSE CREDITS
 %{_bindir}/scmp_sys_resolver
 %{_includedir}/seccomp.h
 %{_libdir}/libseccomp.so
