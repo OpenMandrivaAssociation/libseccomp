@@ -4,7 +4,7 @@
 
 Summary:	Enhanced seccomp library
 Name:		libseccomp
-Version:	2.3.1
+Version:	2.3.2
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
@@ -61,7 +61,7 @@ mkdir -p "%{buildroot}/%{_mandir}"
 %{_libdir}/libseccomp.so.%{major}*
 
 %files -n %{devname}
-%doc LICENSE CREDITS README
+%doc LICENSE CREDITS
 %{_bindir}/scmp_sys_resolver
 %{_includedir}/seccomp.h
 %{_libdir}/libseccomp.so
