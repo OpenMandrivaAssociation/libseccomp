@@ -4,7 +4,7 @@
 
 Summary:	Enhanced seccomp library
 Name:		libseccomp
-Version:	2.3.2
+Version:	2.3.3
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
