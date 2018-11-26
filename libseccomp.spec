@@ -5,11 +5,12 @@
 Summary:	Enhanced seccomp library
 Name:		libseccomp
 Version:	2.3.3
-Release:	3
+Release:	4
 License:	LGPLv2
 Group:		System/Libraries
 Url:		https://github.com/seccomp/libseccomp
 Source0:	https://github.com/seccomp/libseccomp/releases/download/v%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	kernel-release-headers
 Requires:	kernel
 
 %description
@@ -44,18 +45,17 @@ application is allowed to execute, all of which are enforced by the Linux
 Kernel.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 %configure
-%make
+%make_build
 
 %install
 mkdir -p "%{buildroot}/%{_libdir}"
 mkdir -p "%{buildroot}/%{_includedir}"
 mkdir -p "%{buildroot}/%{_mandir}"
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libseccomp.so.%{major}*
