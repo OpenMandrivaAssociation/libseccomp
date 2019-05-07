@@ -10,6 +10,7 @@ License:	LGPLv2
 Group:		System/Libraries
 Url:		https://github.com/seccomp/libseccomp
 Source0:	https://github.com/seccomp/libseccomp/releases/download/v%{version}/%{name}-%{version}.tar.gz
+Patch0:		riscv64.patch
 BuildRequires:	kernel-release-headers
 Requires:	kernel
 
