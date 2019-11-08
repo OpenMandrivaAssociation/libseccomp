@@ -4,13 +4,15 @@
 
 Summary:	Enhanced seccomp library
 Name:		libseccomp
-Version:	2.4.1
+Version:	2.4.2
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
 Url:		https://github.com/seccomp/libseccomp
 Source0:	https://github.com/seccomp/libseccomp/releases/download/v%{version}/%{name}-%{version}.tar.gz
+%ifarch %{riscv}
 Patch0:		riscv64.patch
+%endif
 BuildRequires:	kernel-release-headers
 Requires:	kernel
 
