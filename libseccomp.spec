@@ -4,7 +4,7 @@
 
 Summary:	Enhanced seccomp library
 Name:		libseccomp
-Version:	2.5.2
+Version:	2.5.3
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
@@ -67,5 +67,5 @@ mkdir -p "%{buildroot}/%{_mandir}"
 %{_includedir}/*.h
 %{_libdir}/libseccomp.so
 %{_libdir}/pkgconfig/libseccomp.pc
-%{_mandir}/man3/*
-%{_mandir}/man1/*
+%doc %{_mandir}/man3/*
+%doc %{_mandir}/man1/*
