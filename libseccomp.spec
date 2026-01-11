@@ -5,7 +5,7 @@
 Summary:	Enhanced seccomp library
 Name:		libseccomp
 Version:	2.6.0
-Release:	1
+Release:	2
 License:	LGPLv2
 Group:		System/Libraries
 Url:		https://github.com/seccomp/libseccomp
@@ -37,6 +37,18 @@ to specify which syscalls, and optionally which syscall arguments, the
 application is allowed to execute, all of which are enforced by the Linux
 Kernel.
 
+%package -n %{libname}-static
+Summary:	Collection library providing GObject-based interfaces and classes 
+Group:		System/Libraries
+
+%description -n %{libname}-static
+Static version of libseccomp provides an easy to use interface to the Linux Kernel's
+syscall filtering mechanism, seccomp.  The libseccomp API allows an application
+to specify which syscalls, and optionally which syscall arguments, the
+application is allowed to execute, all of which are enforced by the Linux
+Kernel. This is a require of snapd confine
+
+
 %package -n %{devname}
 Summary:	Development files used to build applications with libseccomp support
 Group:		Development/C
@@ -54,7 +66,7 @@ Kernel.
 %autosetup -p1
 
 %build
-%configure
+%configure --enable-static
 %make_build
 
 %install
@@ -65,6 +77,9 @@ mkdir -p "%{buildroot}/%{_mandir}"
 
 %files -n %{libname}
 %{_libdir}/libseccomp.so.%{major}*
+
+%files -n %{libname}-static
+%{_libdir}/libseccomp.a
 
 %files -n %{devname}
 %doc LICENSE CREDITS
